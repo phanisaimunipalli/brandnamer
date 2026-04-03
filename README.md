@@ -43,13 +43,13 @@ Every name brandnamer generates must pass four gates:
 ## Install
 
 ```bash
-# From PyPI (once published)
-pip install brandnamer
+# Install directly from GitHub (no PyPI needed)
+pip install git+https://github.com/phanisaimunipalli/brandnamer.git
 
 # With pretty table output (recommended)
-pip install "brandnamer[pretty]"
+pip install "brandnamer[pretty] @ git+https://github.com/phanisaimunipalli/brandnamer.git"
 
-# From source
+# From source (for contributors)
 git clone https://github.com/phanisaimunipalli/brandnamer
 cd brandnamer
 pip install -e ".[pretty]"
