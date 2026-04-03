@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-neologix CLI
+brandnamer CLI
 
 Usage examples:
-  neologix "Premium iOS travel orchestrator that eliminates friction between landing, rental, and hotel"
-  neologix "B2B SaaS for supply chain visibility" --provider openai --count 20
-  neologix "Mindfulness app for founders" --provider ollama --model llama3.2
-  neologix --file examples/travel_app.json
+  brandnamer "Premium iOS travel orchestrator that eliminates friction between landing, rental, and hotel"
+  brandnamer "B2B SaaS for supply chain visibility" --provider openai --count 20
+  brandnamer "Mindfulness app for founders" --provider ollama --model llama3.2
+  brandnamer --file examples/travel_app.json
 """
 
 import argparse
@@ -25,7 +25,7 @@ def _print_table(rows, raw_fallback: str):
 
         console = Console()
         table = Table(
-            title="neologix — generated names",
+            title="brandnamer — generated names",
             show_header=True,
             header_style="bold magenta",
             border_style="dim",
@@ -46,7 +46,7 @@ def _print_table(rows, raw_fallback: str):
 
 def main():
     parser = argparse.ArgumentParser(
-        prog="neologix",
+        prog="brandnamer",
         description="Category King brand name generator — Neologism + Short-Form + Phonetic rules.",
     )
     parser.add_argument(
@@ -99,7 +99,7 @@ def main():
 
     if args.version:
         from . import __version__
-        print(f"neologix {__version__}")
+        print(f"brandnamer {__version__}")
         sys.exit(0)
 
     # Resolve description and constraints from --file or CLI arg
@@ -129,10 +129,10 @@ def main():
     try:
         provider = get_provider(args.provider, **provider_kwargs)
     except ValueError as e:
-        print(f"[neologix] Error: {e}", file=sys.stderr)
+        print(f"[brandnamer] Error: {e}", file=sys.stderr)
         sys.exit(1)
 
-    print(f"[neologix] Generating {args.count} names via {args.provider}…\n")
+    print(f"[brandnamer] Generating {args.count} names via {args.provider}…\n")
 
     try:
         rows, raw = generate(
@@ -142,7 +142,7 @@ def main():
             extra_constraints=constraints or None,
         )
     except Exception as e:
-        print(f"[neologix] LLM error: {e}", file=sys.stderr)
+        print(f"[brandnamer] LLM error: {e}", file=sys.stderr)
         sys.exit(1)
 
     if args.raw or not rows:

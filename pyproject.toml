@@ -3,7 +3,7 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.backends.legacy:build"
 
 [project]
-name = "neologix"
+name = "brandnamer"
 version = "0.1.0"
 description = "Category King brand name generator — Neologism, Short-Form, and Phonetic rules for modern apps."
 authors = [{ name = "Phani Sai Ram Munipalli" }]
@@ -25,12 +25,12 @@ pretty = ["rich>=13.0"]
 dev = ["pytest", "rich>=13.0"]
 
 [project.scripts]
-neologix = "neologix.cli:main"
+brandnamer = "brandnamer.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/phanisaimunipalli/neologix"
-Issues = "https://github.com/phanisaimunipalli/neologix/issues"
+Homepage = "https://github.com/phanisaimunipalli/brandnamer"
+Issues = "https://github.com/phanisaimunipalli/brandnamer/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["neologix*"]
+include = ["brandnamer*"]

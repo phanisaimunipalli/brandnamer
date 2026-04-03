@@ -1,11 +1,11 @@
-# neologix
+# brandnamer
 
 **Category King brand name generator — Neologism + Short-Form + Phonetic rules.**
 
 The same naming framework used by elite Silicon Valley naming studios, now as a CLI tool and Python library. Describe your product in plain English, pick your LLM, get a table of ghost-clean, App Store-ready names in seconds.
 
 ```
-$ neologix "Premium iOS travel orchestrator that eliminates flight-to-hotel friction"
+$ brandnamer "Premium iOS travel orchestrator that eliminates flight-to-hotel friction"
 
 ┌──────────────┬────────────────────────────────┬──────────────────────────────────────┐
 │ Name         │ Linguistic Origin              │ The Magic Feeling                    │
@@ -22,7 +22,7 @@ $ neologix "Premium iOS travel orchestrator that eliminates flight-to-hotel fric
 
 ## The Rules
 
-Every name neologix generates must pass four gates:
+Every name brandnamer generates must pass four gates:
 
 | Rule | What it means |
 |------|--------------|
@@ -44,14 +44,14 @@ Every name neologix generates must pass four gates:
 
 ```bash
 # From PyPI (once published)
-pip install neologix
+pip install brandnamer
 
 # With pretty table output (recommended)
-pip install "neologix[pretty]"
+pip install "brandnamer[pretty]"
 
 # From source
-git clone https://github.com/phanisaimunipalli/neologix
-cd neologix
+git clone https://github.com/phanisaimunipalli/brandnamer
+cd brandnamer
 pip install -e ".[pretty]"
 ```
 
@@ -64,31 +64,31 @@ pip install -e ".[pretty]"
 ```bash
 # Gemini (free tier — default)
 export GEMINI_API_KEY=your_key
-neologix "B2B SaaS for real-time supply chain visibility"
+brandnamer "B2B SaaS for real-time supply chain visibility"
 
 # OpenAI
 export OPENAI_API_KEY=your_key
-neologix "Mindfulness app for founders" --provider openai
+brandnamer "Mindfulness app for founders" --provider openai
 
 # Anthropic Claude
 export ANTHROPIC_API_KEY=your_key
-neologix "Gen-Z savings app with gamification" --provider anthropic --model claude-haiku-4-5-20251001
+brandnamer "Gen-Z savings app with gamification" --provider anthropic --model claude-haiku-4-5-20251001
 
 # Local Ollama (no API key)
-neologix "Fitness tracker for remote workers" --provider ollama --model qwen2.5:14b
+brandnamer "Fitness tracker for remote workers" --provider ollama --model qwen2.5:14b
 
 # From a JSON config file
-neologix --file examples/travel_app.json
+brandnamer --file examples/travel_app.json
 
 # 20 names, extra constraint, raw markdown output
-neologix "Luxury skincare subscription" -n 20 -c "avoid ocean metaphors" --raw
+brandnamer "Luxury skincare subscription" -n 20 -c "avoid ocean metaphors" --raw
 ```
 
 ### Python API
 
 ```python
-from neologix.engine import generate
-from neologix.providers import get_provider
+from brandnamer.engine import generate
+from brandnamer.providers import get_provider
 
 provider = get_provider("gemini", api_key="your_key")
 
@@ -120,7 +120,7 @@ Create a config file to save your product brief and reuse it:
 ```
 
 ```bash
-neologix --file examples/travel_app.json --provider anthropic
+brandnamer --file examples/travel_app.json --provider anthropic
 ```
 
 See [`examples/`](examples/) for ready-made configs.
@@ -139,8 +139,8 @@ See [`examples/`](examples/) for ready-made configs.
 Override the model with `--model`:
 
 ```bash
-neologix "..." --provider openai --model gpt-4o
-neologix "..." --provider ollama --model llama3.2
+brandnamer "..." --provider openai --model gpt-4o
+brandnamer "..." --provider ollama --model llama3.2
 ```
 
 ---
@@ -148,7 +148,7 @@ neologix "..." --provider ollama --model llama3.2
 ## CLI Reference
 
 ```
-neologix [description] [options]
+brandnamer [description] [options]
 
 Arguments:
   description          Product description in plain English (wrap in quotes)
@@ -166,11 +166,11 @@ Options:
 
 ---
 
-## Extending neologix
+## Extending brandnamer
 
 ### Add a new provider
 
-Create `neologix/providers/myprovider.py`:
+Create `brandnamer/providers/myprovider.py`:
 
 ```python
 class MyProvider:
@@ -183,7 +183,7 @@ class MyProvider:
         ...
 ```
 
-Register it in `neologix/providers/__init__.py`:
+Register it in `brandnamer/providers/__init__.py`:
 
 ```python
 from .myprovider import MyProvider
@@ -195,7 +195,7 @@ PROVIDERS["myprovider"] = MyProvider
 Import and modify `DEFAULT_RULES` before calling `generate()`:
 
 ```python
-from neologix.rules import DEFAULT_RULES
+from brandnamer.rules import DEFAULT_RULES
 
 DEFAULT_RULES["negative"]["banned_words"].append("zen")
 DEFAULT_RULES["short_form"]["max_chars"] = 6

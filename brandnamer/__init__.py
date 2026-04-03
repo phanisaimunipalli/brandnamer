@@ -1,5 +1,5 @@
 """
-neologix — Category King brand name generator.
+brandnamer — Category King brand name generator.
 Applies the Neologism + Short-Form + Phonetic rules used by elite Silicon Valley naming studios.
 """
 
