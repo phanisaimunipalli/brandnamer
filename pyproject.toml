@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "neologix"
+version = "0.1.0"
+description = "Category King brand name generator — Neologism, Short-Form, and Phonetic rules for modern apps."
+authors = [{ name = "Phani Sai Ram Munipalli" }]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.9"
+keywords = ["branding", "naming", "llm", "startup", "app-naming", "neologism"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Utilities",
+]
+dependencies = []  # zero hard deps — stdlib + optional rich
+
+[project.optional-dependencies]
+pretty = ["rich>=13.0"]
+dev = ["pytest", "rich>=13.0"]
+
+[project.scripts]
+neologix = "neologix.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/phanisaimunipalli/neologix"
+Issues = "https://github.com/phanisaimunipalli/neologix/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["neologix*"]

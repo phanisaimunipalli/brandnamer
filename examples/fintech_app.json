@@ -1,0 +1,8 @@
+{
+  "description": "A Gen-Z savings app that turns financial discipline into a game. Users set micro-goals and unlock rewards as they hit milestones. The product is playful, encouraging, and non-judgmental about money.",
+  "constraints": [
+    "Playful but not childish",
+    "Must not sound like a bank",
+    "Avoid 'coin', 'cash', 'dollar', 'wallet'"
+  ]
+}
